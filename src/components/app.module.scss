@@ -1,0 +1,48 @@
+@import "../styles/mixins.module";
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  margin: 0px;
+  border-width: 0px;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+p {
+  color: #101828;
+}
+.app {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  .appInnerwrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    @include flex(center, center, column);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

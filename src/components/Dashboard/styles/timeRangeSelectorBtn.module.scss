@@ -1,0 +1,35 @@
+@import "../../../styles/mixins.module";
+
+.bntWrapper {
+  width: auto;
+  height: 28px;
+  border: 2px solid #141478;
+  @include flex(center, center);
+  border-radius: 5px;
+  margin: 0px 5px;
+
+  .clockIconDiv {
+    height: 80%;
+    aspect-ratio: 1/1;
+    @include flex(center, center);
+    border-right: 2px solid #141478;
+    margin: 0px 5px;
+  }
+  .timeRangeTextDiv {
+    width: auto;
+    height: 100%;
+    @include flex(center, center);
+    @include small-device {
+      display: none;
+    }
+    p {
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+  }
+  .dropDownChevIconDiv {
+    height: 100%;
+    aspect-ratio: 1/1;
+    @include flex(center, center);
+  }
+}

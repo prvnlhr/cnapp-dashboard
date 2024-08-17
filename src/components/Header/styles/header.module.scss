@@ -1,0 +1,96 @@
+@import "../../../styles/mixins.module";
+
+.headerWrapper {
+  width: 100%;
+  height: 40px;
+  @include flex(start, center);
+
+  .breadCrumbsBar {
+    width: auto;
+    height: 100%;
+    @include flex(start, center);
+    padding-left: 15px;
+  }
+
+  .searchBarWrapper {
+    width: 400px;
+    height: 30px;
+    border: 2.5px solid #e3eefa;
+    @include flex(start, center);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #f1f5f9;
+
+    @include small-device {
+      width: auto;
+      margin-left: auto;
+      margin-right: 10px;
+    }
+
+    .searchIconDiv {
+      height: 100%;
+      aspect-ratio: 1/1;
+      @include flex(center, center);
+
+      .searchIcon {
+        color: #9bb7d5;
+        font-size: 1.2rem;
+      }
+    }
+    .searchInputDiv {
+      // border: 1px solid red;
+      width: 100%;
+      height: 100%;
+      @include flex(start, center);
+      input {
+        font-size: 0.7rem;
+        padding: 0px 5px;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        background: none;
+        &::placeholder {
+          font-size: 0.65rem;
+          font-weight: 500;
+          color: rgba(128, 128, 128, 0.715);
+        }
+      }
+    }
+  }
+}
+
+.breadCrumbWrapper {
+  width: auto;
+  height: 80%;
+  @include flex(start, center);
+
+  .textDiv {
+    width: auto;
+    height: 100%;
+    @include flex(center, center);
+    p {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: slategrey;
+    }
+    &:last-child {
+      p {
+        font-weight: 700 !important;
+        color: #294568;
+      }
+    }
+  }
+
+  .chevIconDiv {
+    height: 100%;
+    aspect-ratio: 1/2;
+    @include flex(center, center);
+
+    .icon {
+      font-size: 0.8rem;
+      color: slategrey;
+    }
+  }
+}

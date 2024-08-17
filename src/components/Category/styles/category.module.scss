@@ -1,0 +1,36 @@
+@import "../../../styles/mixins.module";
+
+.cartegoryLayoutWrapper {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-areas:
+    "headingCell"
+    "widgetsCell";
+  grid-template-columns: 100%;
+  grid-template-rows: 30px auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  // border: 1px solid salmon;
+
+  .headingCell {
+    grid-area: "headingCell";
+    width: 100%;
+    height: 100%;
+    @include flex(start, center);
+    // border: 1px solid blue;
+
+    p {
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+  }
+
+  .widgetsCell {
+    grid-area: "widgetsCell";
+    width: 100%;
+    height: auto;
+    // border: 1px solid green;
+    @include flex(start, start, $wrap: wrap);
+  }
+}

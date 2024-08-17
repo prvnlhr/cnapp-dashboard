@@ -1,0 +1,43 @@
+@import "../../../styles/mixins.module";
+
+.dashboardWrapper {
+  width: 100%;
+  height: calc(100% - 40px);
+  // border: 1px solid black;
+  display: grid;
+  grid-template-areas:
+    "dashHeaderCell"
+    "contentCell";
+  grid-template-rows: 50px minmax(0, 1fr);
+  background-color: #f1f5f9;
+  padding: 10px 20px;
+
+  @include small-device {
+    padding: 10px 10px;
+  }
+
+  .dashHeaderCell {
+    grid-area: dashHeaderCell;
+    width: 100%;
+    height: 100%;
+    @include flex(start, center);
+
+    .headingText {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-right: auto;
+    }
+  }
+  .contentCell {
+    grid-area: contentCell;
+    width: 100%;
+    height: 100%;
+    @include flex(start, start, column);
+    @include scroll($dir: y);
+    padding: 0px 15px;
+
+    @include small-device {
+      padding: 0;
+    }
+  }
+}

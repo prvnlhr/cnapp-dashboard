@@ -1,0 +1,13 @@
+@import "../../../styles/mixins.module";
+
+.btnWrapper {
+  width: auto;
+  height: 30px;
+  @include flex(center, center);
+  border: 2px solid #e4e8ec;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 5px;
+  padding: 0px 5px;
+  margin: 0px 5px;
+}
