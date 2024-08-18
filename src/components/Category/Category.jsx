@@ -9,10 +9,12 @@ const Category = ({ category }) => {
         <p>{category.name}</p>
       </div>
       <div className={styles.widgetsCell}>
-        {category.widgets.map((widget) => (
-          <Widget widget={widget} key={widget.id} />
-        ))}
-        <Widget withBtn={true} />
+        {category.widgets
+          .filter((widget) => widget.status)
+          .map((widget) => (
+            <Widget category={category} widget={widget} key={widget.id} />
+          ))}
+        <Widget category={category} withBtn={true} />
       </div>
     </div>
   );

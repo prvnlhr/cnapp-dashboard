@@ -14,7 +14,7 @@
   // border: 1px solid salmon;
 
   .headingCell {
-    grid-area: "headingCell";
+    grid-area: headingCell;
     width: 100%;
     height: 100%;
     @include flex(start, center);
@@ -27,7 +27,7 @@
   }
 
   .widgetsCell {
-    grid-area: "widgetsCell";
+    grid-area: widgetsCell;
     width: 100%;
     height: auto;
     // border: 1px solid green;

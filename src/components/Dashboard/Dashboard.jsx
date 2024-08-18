@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./styles/dashboard.module.scss";
-import { categories } from "../../JSONData/data";
 import Category from "../Category/Category";
 import AddWidgetBtn from "./AddWidgetBtn";
 import MenuBtn from "./MenuBtn";
 import RefreshBtn from "./RefreshBtn";
 import TimeRangeSelectorBtn from "./TimeRangeSelectorBtn";
+import SideWidgetMenu from "../SideMenu/SideWidgetMenu";
+import { useAppState } from "../../context/AppContext";
+
 const Dashboard = () => {
+  const { categoriesData } = useAppState();
+
   return (
     <div className={styles.dashboardWrapper}>
+      <SideWidgetMenu />
       <div className={styles.dashHeaderCell}>
         <p className={styles.headingText}>CNAPP Dashboard</p>
         <AddWidgetBtn />
@@ -17,9 +22,10 @@ const Dashboard = () => {
         <TimeRangeSelectorBtn />
       </div>
       <div className={styles.contentCell}>
-        {categories.map((category) => (
-          <Category category={category} key={category.id} />
-        ))}
+        {categoriesData &&
+          categoriesData.map((category) => (
+            <Category category={category} key={category.id} />
+          ))}
       </div>
     </div>
   );

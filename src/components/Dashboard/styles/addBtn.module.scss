@@ -1,7 +1,6 @@
 @import "../../../styles/mixins.module";
 
 .btnWrapper {
-  width: auto;
   height: 30px;
   @include flex(center, center);
   border: 2px solid #e4e8ec;
@@ -12,17 +11,27 @@
   margin: 0px 5px;
   background-color: white;
 
-  .icon {
-    font-size: 1.3rem;
-    margin: 0px 3px;
+  .iconDiv {
+    @include flex(center, center);
+    height: 100%;
+    aspect-ratio: 1/1;
+    // border: 1px solid red;
+    .icon {
+      font-size: 1.3rem;
+    }
   }
-  p {
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: #717886;
-    margin: 0px 5px;
-    @include small-device {
-      display: none;
+  .textDiv {
+    width: auto;
+    height: 100%;
+    // border: 1px solid green;
+    @include flex(center, center);
+    p {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #717886;
+      @include small-device {
+        display: none;
+      }
     }
   }
 }

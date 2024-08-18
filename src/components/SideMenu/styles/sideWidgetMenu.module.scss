@@ -1,0 +1,94 @@
+@import "../../../styles/mixins.module";
+
+.modalWrapper {
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  background-color: white;
+  right: 0;
+  z-index: 1;
+  @include flex(start, start, column);
+  // border: 1px solid red;
+
+  @include transistion(right, 0.3s);
+
+  &--hidden {
+    right: -100%;
+  }
+
+  @include small-device {
+    width: 100%;
+    // border: 1px solid red;
+  }
+
+  .header {
+    width: 100%;
+    height: 40px;
+    background-color: #141478;
+    @include flex(start, center);
+
+    p {
+      font-size: 0.7rem;
+      color: white;
+      margin-left: 10px;
+      margin-right: auto;
+    }
+    .modalCloseIcon {
+      font-size: 0.9rem;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+  }
+
+  .tabsBar {
+    width: 100%;
+    height: 70px;
+    // border: 1px solid gray;
+    @include flex(start, start, column);
+
+    .tabsHeadingDiv {
+      width: 100%;
+      height: 50%;
+      //   border: 1px solid blue;
+      @include flex(start, center);
+      p {
+        color: #383838;
+        font-size: 0.7rem;
+        font-weight: 500;
+        margin-left: 10px;
+      }
+    }
+    .tabsWrapper {
+      width: 100%;
+      height: 50%;
+      //   border: 1px solid gray;
+      @include flex(start, center);
+      //   border: 1px solid red;
+      padding: 0px 10px;
+    }
+  }
+
+  .contentWrapper {
+    width: 100%;
+    height: calc(100% - 110px);
+  }
+}
+
+.tab {
+  width: auto;
+  height: 100%;
+  border: none;
+  border-bottom: 2px solid #e4e8ed;
+  padding: 0px 10px;
+  @include flex(center, center);
+  background: none;
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: gray;
+  &--active {
+    color: #101828;
+    border-bottom: 2px solid #141478 !important;
+  }
+}
+

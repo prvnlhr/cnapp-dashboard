@@ -28,5 +28,9 @@
     height: calc(100% - 20px);
     // border: 1px solid black;
     @include flex(center, center);
+    p {
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
   }
 }
