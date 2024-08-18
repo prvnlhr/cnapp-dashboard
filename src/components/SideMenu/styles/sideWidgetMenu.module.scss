@@ -9,6 +9,7 @@
   z-index: 1;
   @include flex(start, start, column);
   // border: 1px solid red;
+  z-index: 3;
 
   @include transistion(right, 0.3s);
 
@@ -91,4 +92,3 @@
     border-bottom: 2px solid #141478 !important;
   }
 }
-

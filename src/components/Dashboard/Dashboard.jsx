@@ -9,23 +9,24 @@ import SideWidgetMenu from "../SideMenu/SideWidgetMenu";
 import { useAppState } from "../../context/AppContext";
 
 const Dashboard = () => {
-  const { categoriesData } = useAppState();
+  const { categoriesData, searchResult, searchQuery } = useAppState();
 
   return (
     <div className={styles.dashboardWrapper}>
       <SideWidgetMenu />
       <div className={styles.dashHeaderCell}>
         <p className={styles.headingText}>CNAPP Dashboard</p>
-        <AddWidgetBtn />
-        <RefreshBtn />
+        {/* <AddWidgetBtn /> */}
+        {/* <RefreshBtn /> */}
         <MenuBtn />
-        <TimeRangeSelectorBtn />
+        {/* <TimeRangeSelectorBtn /> */}
       </div>
       <div className={styles.contentCell}>
-        {categoriesData &&
-          categoriesData.map((category) => (
+        {(searchQuery && searchResult ? searchResult : categoriesData).map(
+          (category) => (
             <Category category={category} key={category.id} />
-          ))}
+          )
+        )}
       </div>
     </div>
   );

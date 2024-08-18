@@ -38,7 +38,7 @@ export const categories = [
       {
         id: generateObjectId(),
         name: "Top 5 Namespace Specific Alerts",
-        status: false,
+        status: true,
         text: "Gauge showing top 5 namespace-specific alerts.",
       },
       {
@@ -57,7 +57,7 @@ export const categories = [
       {
         id: generateObjectId(),
         name: "Image Risk Assessments",
-        status: false,
+        status: true,
         text: "Bar chart for image risk assessments.",
       },
       {
@@ -82,13 +82,13 @@ export const categories = [
       {
         id: generateObjectId(),
         name: "Ticket Resolution Time",
-        status: false,
+        status: true,
         text: "Line chart for ticket resolution time.",
       },
       {
         id: generateObjectId(),
         name: "Tickets by Priority",
-        status: false,
+        status: true,
         text: "Gauge showing tickets by priority.",
       },
     ],

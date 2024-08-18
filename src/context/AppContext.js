@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const AppStateContext = createContext();
 
@@ -13,6 +13,9 @@ export const AppStateProvider = ({ children }) => {
     name: "",
     text: "",
   });
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResult, setSearchResult] = useState(null);
 
   const toggleWidgetForm = (show, mode) => {
     setShowWidgetForm(false);
@@ -80,6 +83,50 @@ export const AppStateProvider = ({ children }) => {
     }
   };
 
+  const deleteWidget = (categoryId, widgetId) => {
+    const updatedCategoriesData = categoriesData.map((category) => {
+      if (category.id === categoryId) {
+        const updatedWidgets = category.widgets.filter(
+          (widget) => widget.id !== widgetId
+        );
+
+        return {
+          ...category,
+          widgets: updatedWidgets,
+        };
+      }
+      return category;
+    });
+
+    setCategoriesData(updatedCategoriesData);
+
+    if (currentCategory?.id === categoryId) {
+      setCurrentCategory({
+        ...currentCategory,
+        widgets: updatedCategoriesData.find(
+          (category) => category.id === categoryId
+        ).widgets,
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (searchQuery) {
+      const filteredCategories = categoriesData
+        .map((category) => {
+          const filteredWidgets = category.widgets.filter((widget) =>
+            widget.name.toLowerCase().includes(searchQuery.toLowerCase())
+          );
+
+          return filteredWidgets.length > 0
+            ? { ...category, widgets: filteredWidgets }
+            : null;
+        })
+        .filter((category) => category !== null);
+      setSearchResult(filteredCategories);
+    }
+  }, [searchQuery]);
+
   return (
     <AppStateContext.Provider
       value={{
@@ -102,6 +149,13 @@ export const AppStateProvider = ({ children }) => {
 
         addOrUpdateWidget,
         setShowWidgetMenu,
+
+        deleteWidget,
+
+        searchQuery,
+        setSearchQuery,
+        setSearchResult,
+        searchResult,
       }}
     >
       {children}

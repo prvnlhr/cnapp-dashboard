@@ -5,7 +5,8 @@ import Header from "./Header/Header";
 import { useAppState } from "../context/AppContext";
 import { categories as data } from "../JSONData/data";
 const App = () => {
-  const { setCategoriesData, updateCurrCategory } = useAppState();
+  const { setCategoriesData, updateCurrCategory, searchResult } = useAppState();
+
   useEffect(() => {
     if (data) {
       setCategoriesData(data);

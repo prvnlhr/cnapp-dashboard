@@ -8,9 +8,28 @@
   margin: 10px;
   @include flex(center, center, column);
   padding: 10px;
+  z-index: 1;
+  position: relative;
 
   @include small-device {
     width: 100%;
+  }
+  .deleteCrossIconDiv {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    aspect-ratio: 1/1;
+    height: auto;
+    border: 1px solid slategray;
+    border-radius: 50%;
+    @include flex(center, center);
+    cursor: pointer;
+    z-index: 2;
+    padding: 5px;
+    .deleteCrossIcon {
+      font-size: 0.5rem;
+      color: slategray;
+    }
   }
 
   .widgetNameDiv {
@@ -18,6 +37,8 @@
     height: 20px;
     @include flex(start, center);
     // border: 1px solid red;
+    z-index: 1;
+
     p {
       font-size: 0.7rem;
       font-weight: 600;

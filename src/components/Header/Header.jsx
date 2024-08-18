@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./styles/header.module.scss";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import { useAppState } from "../../context/AppContext";
 
 const BreadCrumb = ({ breadcrumb, index, data }) => {
   return (
@@ -27,6 +28,8 @@ const Header = () => {
       href: "",
     },
   ];
+
+  const { setSearchQuery, searchQuery } = useAppState();
   return (
     <div className={styles.headerWrapper}>
       <div className={styles.breadCrumbsBar}>
@@ -40,11 +43,24 @@ const Header = () => {
         ))}
       </div>
       <div className={styles.searchBarWrapper}>
-        <div className={styles.searchIconDiv}>
+        <div className={styles.iconDiv}>
           <Icon className={styles.searchIcon} icon="humbleicons:search" />
         </div>
         <div className={styles.searchInputDiv}>
-          <input placeholder="Search anything..." />
+          <input
+            onChange={(e) => setSearchQuery(e.target.value)}
+            value={searchQuery}
+            placeholder="Search anything..."
+          />
+        </div>
+        <div className={styles.iconDiv} onClick={() => setSearchQuery("")}>
+          {searchQuery && (
+            <Icon
+              className={styles.clearIcon}
+              icon="akar-icons:cross"
+              style={{ color: "black" }}
+            />
+          )}
         </div>
       </div>
     </div>

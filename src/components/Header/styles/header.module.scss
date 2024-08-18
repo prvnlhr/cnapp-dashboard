@@ -29,7 +29,7 @@
       margin-right: 10px;
     }
 
-    .searchIconDiv {
+    .iconDiv {
       height: 100%;
       aspect-ratio: 1/1;
       @include flex(center, center);
@@ -38,9 +38,14 @@
         color: #9bb7d5;
         font-size: 1.2rem;
       }
+
+      .clearIcon {
+        font-size: 0.7rem;
+        cursor: pointer;
+      }
     }
+
     .searchInputDiv {
-      // border: 1px solid red;
       width: 100%;
       height: 100%;
       @include flex(start, center);

@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./styles/category.module.scss";
 import Widget from "../Widget/Widget";
+import { useAppState } from "../../context/AppContext";
 
 const Category = ({ category }) => {
+  const { searchQuery } = useAppState();
   return (
     <div className={styles.cartegoryLayoutWrapper}>
       <div className={styles.headingCell}>
@@ -14,7 +16,7 @@ const Category = ({ category }) => {
           .map((widget) => (
             <Widget category={category} widget={widget} key={widget.id} />
           ))}
-        <Widget category={category} withBtn={true} />
+        {!searchQuery && <Widget category={category} withBtn={true} />}
       </div>
     </div>
   );
