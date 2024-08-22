@@ -17,11 +17,7 @@ export const AppStateProvider = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResult] = useState(null);
 
-  const toggleWidgetForm = (show, mode) => {
-    setShowWidgetForm(false);
-  };
-
-  const toggleWidgetModal = () => {
+  const toggleWidgetMenu = () => {
     setShowWidgetMenu((prev) => !prev);
   };
 
@@ -124,6 +120,8 @@ export const AppStateProvider = ({ children }) => {
         })
         .filter((category) => category !== null);
       setSearchResult(filteredCategories);
+    } else {
+      setSearchResult(null);
     }
   }, [searchQuery]);
 
@@ -131,7 +129,7 @@ export const AppStateProvider = ({ children }) => {
     <AppStateContext.Provider
       value={{
         showWidgetMenu,
-        toggleWidgetModal,
+        toggleWidgetMenu,
 
         currentCategory,
         categoriesData,
@@ -145,16 +143,12 @@ export const AppStateProvider = ({ children }) => {
         setWidgetFormData,
         clearWidgetForm,
 
-        toggleWidgetForm,
-
-        addOrUpdateWidget,
         setShowWidgetMenu,
-
+        addOrUpdateWidget,
         deleteWidget,
 
         searchQuery,
         setSearchQuery,
-        setSearchResult,
         searchResult,
       }}
     >

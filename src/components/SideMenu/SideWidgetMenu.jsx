@@ -23,7 +23,7 @@ const Tab = ({ category }) => {
 const SideWidgetMenu = () => {
   const {
     showWidgetMenu,
-    toggleWidgetModal,
+    toggleWidgetMenu,
     currentCategory,
     showWidgetForm,
     clearWidgetForm,

@@ -4,7 +4,7 @@ import AddWidgetBtn from "./AddWidgetBtn";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useAppState } from "../../context/AppContext";
 const Widget = ({ category, widget, withBtn }) => {
-  const { deleteWidget } = useAppState();
+  const { deleteWidget, searchResult } = useAppState();
   const handleDeleteWidget = () => {
     const isConfirmed = window.confirm(
       "Are you sure you want to delete this widget?"
@@ -15,7 +15,7 @@ const Widget = ({ category, widget, withBtn }) => {
   };
   return (
     <div className={styles.widgetWrapper}>
-      {!withBtn && (
+      {!withBtn && !searchResult && (
         <>
           <div
             className={styles.deleteCrossIconDiv}
